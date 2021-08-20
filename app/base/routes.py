@@ -11,8 +11,8 @@ import logging
 
 from app import db, login_manager
 from app.base import blueprint
-from app.base.models import User, Data
-from app.base.forms import LoginForm, CreateAccountForm, AddDataForm
+from app.base.models import User
+from app.base.forms import LoginForm, CreateAccountForm
 from app.base.util import verify_pass
 
 
@@ -103,29 +103,3 @@ def unauthorized_handler():
 def test():
     return render_template('pages/test.html')
 
-@blueprint.route('/form', methods=['GET', 'POST'])
-@login_required
-def addData():
-    # Form to send to the template
-    add_data_form = AddDataForm()
-
-    if(request.method == 'GET'):
-        template = 'pages/form.html'
-    elif(request.method == 'POST'):
-        template = 'pages/table_data.html'
-        if ('addData' in request.form):
-            value = request.form['dataValue']
-            comment = request.form['dataComment']
-
-            data = Data(**request.form)
-            db.session.add(data)
-            db.session.commit()
-        return render_template('pages/table_data.html', data=Data.query.all())
-
-    return render_template(template, form=add_data_form)
-
-@blueprint.route('/data')
-@login_required
-def show_data():
-    
-    return render_template('pages/table_data.html', data=Data.query.all())

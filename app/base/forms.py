@@ -15,6 +15,3 @@ class CreateAccountForm(FlaskForm):
 
 ## END USER MANAGEMENT
 
-class AddDataForm(FlaskForm):
-    dataComment = TextField('Comment', id='dataComment_create', validators=[DataRequired()])
-    dataValue = TextField('Value', id='dataValue_create', validators=[DataRequired(), NumberRange(0,100)])

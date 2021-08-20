@@ -17,6 +17,10 @@ def register_blueprints(app):
     # Loading module Base
     base_module = import_module('app.base.routes')
     app.register_blueprint(base_module.blueprint)
+    # Loading the example module
+    base_module = import_module('app.module_example.routes')
+    app.register_blueprint(base_module.blueprint)
+    
 
 def configure_database(app):
 
