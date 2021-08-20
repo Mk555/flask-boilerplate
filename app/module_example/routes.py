@@ -34,3 +34,11 @@ def addData():
 def show_data():
     
     return render_template('pages/table_data.html', data=Data.query.all())
+
+
+## EXAMPLES OF SIMPLE PAGES
+
+@blueprint.route('/test')
+@login_required
+def test():
+    return render_template('pages/test.html')

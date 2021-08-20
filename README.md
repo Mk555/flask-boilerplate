@@ -13,14 +13,14 @@ flask run
 ```
 ## How to add a module
 
-Add the following dirs/files like this :
+Add the following dirs/files like this (or copy the example_module) :
 ```
-module-name/
-├── template/
-├── __init__.py
-├── forms.py
-├── models.py
-└── routes.py
+└── module-name/
+    ├── templates/
+    ├── __init__.py
+    ├── forms.py
+    ├── models.py
+    └── routes.py
 ```
 
 Edit the file `__init__.py` of the app to load the new module in the function `register_blueprints()` like this : 
@@ -31,3 +31,9 @@ Edit the file `__init__.py` of the app to load the new module in the function `r
 
 Modify the name of the blueprint in the `__init__.py` of the new module
 
+Modify the imports in this 2 files :
+```
+└── module-name
+    ├── models.py
+    └── routes.py
+```

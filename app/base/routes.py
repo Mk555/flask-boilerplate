@@ -96,10 +96,5 @@ def unauthorized_handler():
 
 ## END ERRORS
 
-## EXAMPLES OF SIMPLE PAGES
 
-@blueprint.route('/test')
-@login_required
-def test():
-    return render_template('pages/test.html')
 
